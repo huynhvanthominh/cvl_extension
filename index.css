@@ -1,0 +1,28 @@
+body,
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+input,
+button {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid gray;
+  cursor: auto;
+}
+
+input {}
+
+button {
+  cursor: pointer;
+}
+
+.form-login {
+  padding: 1rem;
+}
+
+.form-login .form-item {}
