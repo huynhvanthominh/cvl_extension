@@ -1,10 +1,23 @@
 {
   "manifest_version": 3,
-  "name": "Hello Extensions",
-  "description": "Base Level Extension",
+  "name": "CLV Extensions",
+  "description": "Auto punch",
   "version": "1.0",
+  "host_permissions": [
+    "https://blueprint.cyberlogitec.com.vn/"
+  ],
+  "permissions": ["activeTab", "scripting", "storage", "cookies", "tabs"],
+   "background": {
+    "service_worker": "js/service_worker.js"
+  },
   "action": {
-    "default_popup": "login.html",
-    "default_icon": "hello_extensions.png"
-  }
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"]
+    }
+  ]
 }

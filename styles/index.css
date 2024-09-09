@@ -1,0 +1,96 @@
+:root {
+  --primary: #001df5;
+  --white: #ffffff;
+}
+body,
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+input,
+button {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid gray;
+  cursor: auto;
+}
+
+.btn{
+  cursor: pointer;
+}
+
+.btn-primary{
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+form.form {
+  min-width: 30rem;
+  padding: 1rem;
+}
+form.horizontal .form-item{
+  display: flex;
+  justify-content:space-between;
+  padding: 1rem 0rem;
+  align-items: center;
+}
+
+.title{
+  font-size: 2rem !important;
+}
+
+.d-flex{
+  display: flex !important;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+
+.justify-content-end{
+  justify-content: end;
+}
+
+
+
+/* Basic styles for the container */
+.tooltip {
+  position: relative; /* To position the tooltip relative to this element */
+  display: inline-block; /* Keeps the container size based on content */
+  cursor: pointer; /* Cursor changes to pointer when hovering */
+}
+
+/* Tooltip style using ::after pseudo-element */
+.tooltip[data-tooltip]::after {
+  content: attr(data-tooltip); /* Displays the content from data-tooltip attribute */
+  position: absolute; /* Positioning relative to the container */
+  bottom: 100%; /* Positions the tooltip above the container */
+  left: 50%; /* Centers the tooltip horizontally */
+  transform: translateX(-50%); /* Adjusts centering */
+  
+  /* Tooltip styling */
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text color */
+  padding: 5px 8px; /* Padding inside the tooltip */
+  border-radius: 4px; /* Rounded corners */
+  white-space: nowrap; /* Prevents text wrapping */
+  font-size: 12px; /* Optional: Adjust font size */
+  z-index: 1000; /* Ensures the tooltip is above other elements */
+  
+  /* Tooltip visibility */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0; /* Fully transparent initially */
+  transition: opacity 0.3s; /* Smooth fade-in transition */
+}
+
+/* Show the tooltip on hover */
+.tooltip[data-tooltip]:hover::after {
+  visibility: visible; /* Show the tooltip */
+  opacity: 1; /* Fully opaque on hover */
+}
+

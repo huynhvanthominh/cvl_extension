@@ -1,0 +1,46 @@
+<html>
+<link rel="stylesheet" href="styles/index.css">
+
+<body>
+  <form id="form-settings" class="form horizontal">
+
+    <div class="title d-flex justify-content-center">Settings</div>
+
+    <div class="form-item">
+      <label for="isAutoPunch" class="tooltip" data-tooltip="This is the tooltip message">Auto Punch</label>
+      <input name="isAutoPunch" type='checkbox' id='isAutoPunch' />
+    </div>
+
+    <div class="form-item">
+      <label for="isAutoPunch">Time Punch In</label>
+      <div>
+        <label for="punchInMin">From</label>
+        <input type='time' name="punchInMin" id='punchInMin' />
+        <label for="punchInMax">To</label>
+        <input type='time' name="punchInMax" id='punchInMax' />
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label for="isAutoPunch">Time Punch Out</label>
+      <div>
+        <label for="punchOutMin">From</label>
+        <input type='time' name="punchOutMin" id='punchOutMin' />
+        <label for="punchOutMax">To</label>
+        <input type='time' id='punchOutMax' name="punchOutMax" />
+      </div>
+    </div>
+
+    <div class="form-item">
+      <label for="">Date Expression</label>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button id="btn-save-setting" class="btn btn-primary">Save</button>
+
+    </div>
+  </form>
+</body>
+
+</html>
+<script src="js/index.js"></script>
