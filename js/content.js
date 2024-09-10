@@ -1,4 +1,3 @@
-alert(123);
 const formId = "form-settings";
 function getFormValues() {
   const f = document.getElementById(formId);

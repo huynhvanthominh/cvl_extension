@@ -76,21 +76,29 @@ const getDate = () => {
 };
 
 const mainFunction = () => {
-  const { now, dateMinPunchIn, dateMinPunchOut } = getDate();
+  const { now, dateMinPunchIn, dateMaxPunchIn, dateMinPunchOut, dateMaxPunchOut } = getDate();
 
-  const a = dateMinPunchIn.getTime() - now.getTime();
-  const b = dateMinPunchOut.getTime() - now.getTime();
+  const a1 = dateMinPunchIn.getTime() - now.getTime();
+  const a2 = dateMaxPunchIn.getTime() - now.getTime();
 
-  if (a > 0) {
+  const b1 = dateMinPunchOut.getTime() - now.getTime();
+  const b2 = dateMaxPunchOut.getTime() - now.getTime();
+  if (a1 > 0) {
     setTimeout(() => {
       listPunch().then();
-    }, a);
-  }
-  if (b > 0) {
+    }, a1);
+  } else
+    if (a2 > 0) {
+      listPunch().then()
+    }
+  if (b1 > 0) {
     setTimeout(() => {
       listPunch().then();
-    }, b);
-  }
+    }, b1);
+  } else
+    if (b2 > 0) {
+      listPunch().then();
+    }
 };
 
 function parseTimeString(timeString) {
@@ -161,17 +169,17 @@ const listPunch = async () => {
   const { listDailyAttendance } = data;
   const dateToString = getDateWithFormatMMDDYYYY(now);
   const find = listDailyAttendance.find(
-    (item) => item.wrkDt === dateToString && item.dyTpCd === "W",
+    (item) => item.wrkDt === dateToString && item.dyTpCd === "B",
   );
   if (find) {
     const start = new Date();
     const atndTms = find.atndTms;
-    const timeStart = parseTimeString(atndTms);
+    const timeStart = parseTimeString(atndTms ?? '0000');
     start.setHours(timeStart.hours, timeStart.minutes);
 
     const end = new Date();
     const lveTms = find.lveTms;
-    const timeEnd = parseTimeString(lveTms);
+    const timeEnd = parseTimeString(lveTms ?? '0000');
     end.setHours(timeEnd.hours, timeEnd.minutes);
 
     if (
